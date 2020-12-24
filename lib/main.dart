@@ -12,114 +12,160 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'flutter layout demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.green,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
+        primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text('Welcome to Flutter'),
-          ),
-          body: Column(
-            children: [t.titleSection],
-          )),
-      //home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(),
     );
   }
 }
 
+class Post {
+  String body;
+  String author;
+  int likes = 0;
+  bool userLiked = false;
+
+  Post({this.body, this.author});
+
+  void likePost() {
+    this.likes++;
+    userLiked = true;
+  }
+}
+
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  String text = '';
+  List<Post> posts = [];
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+  void newPost([String text, String author = 'Eric']) {
+    this.setState(() {
+      posts.add(new Post(body: text, author: author));
     });
+  }
+  // void press(String text) {
+  //   this.setState(() {
+  //     this.text = text;
+  //   });
+  // }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(title: Text('Hello World!')),
+        body: Column(children: <Widget>[
+          Expanded(
+              child: PostList(
+            listItems: this.posts,
+          )),
+          TextInputWidget(
+            callback: this.newPost,
+          ),
+        ]));
+  }
+}
+
+class TextInputWidget extends StatefulWidget {
+  final Function(String, [String]) callback;
+  TextInputWidget({this.callback});
+
+  @override
+  _TextInputWidgetState createState() => _TextInputWidgetState();
+}
+
+class _TextInputWidgetState extends State<TextInputWidget> {
+  @override
+  final controller = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
+
+  void click() {
+    FocusScope.of(context).unfocus();
+    widget.callback(controller.text);
+    controller.clear();
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+    return Container(
+        padding: EdgeInsets.only(bottom: 20, left: 10, right: 10),
+        child: TextField(
+          // onChanged: (text) => {this.changeText(text)},
+          controller: this.controller,
+          onEditingComplete: () => {print('complete')},
+          onSubmitted: (text) {
+            this.click();
+          },
+          decoration: InputDecoration(
+              prefixIcon: Icon(Icons.message),
+              suffixIcon: IconButton(
+                icon: Icon(Icons.send),
+                tooltip: 'Post Message',
+                splashColor: Colors.grey[500],
+                onPressed: () {
+                  this.click();
+                },
+              ),
+              labelText: "Type a message:"),
+        ));
+  }
+}
+
+class PostList extends StatefulWidget {
+  final List<Post> listItems;
+
+  PostList({this.listItems});
+
+  @override
+  _PostListState createState() => _PostListState();
+}
+
+class _PostListState extends State<PostList> {
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: this.widget.listItems.length,
+        itemBuilder: (context, i) {
+          var post = this.widget.listItems[i];
+          return Card(
+            child: Row(
+              children: [
+                Expanded(
+                  child: ListTile(
+                    title: Text(post.body),
+                    subtitle: Text(post.author),
+                  ),
+                ),
+                Row(
+                  children: <Widget>[
+                    Container(
+                      child: Text(post.likes.toString(),
+                          style: TextStyle(fontSize: 20)),
+                      padding: EdgeInsets.fromLTRB(1, 1, 4, 1),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.thumb_up_alt),
+                      onPressed: () {
+                        this.setState(() {
+                          post.likePost();
+                        });
+                      },
+                      color: post.userLiked ? Colors.green : null,
+                    )
+                  ],
+                )
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+          );
+        });
   }
 }
