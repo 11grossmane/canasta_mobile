@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/grid.dart';
 import 'package:my_app/home.dart';
 import 'package:my_app/textInputWidget.dart';
 
@@ -58,12 +59,8 @@ class _LoginState extends State<Login> {
                     borderRadius: BorderRadius.circular(18),
                   ),
                   onPressed: () => {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Home(
-                                  author: this.email,
-                                )))
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Grid()))
                   },
                   child: Text('Login'),
                   textColor: Colors.white,
