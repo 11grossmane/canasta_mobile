@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
+import 'package:my_app/hand.dart';
 
 const cellRed = Color(0xffc73232);
 const cellMustard = Color(0xffd7aa22);
@@ -44,11 +45,11 @@ class _GridState extends State<Grid> {
           // Column 1
           _buildItemForColor(cellRed).withGridPlacement(
               columnStart: 1, rowStart: 1, rowSpan: 4, columnSpan: 4),
-          // _buildItemForColor(cellMustard).withGridPlacement(
-          //   columnStart: 0,
-          //   rowStart: 2,
-          //   rowSpan: 2,
-          // ),
+          Hand().withGridPlacement(
+            columnStart: 0,
+            rowStart: 5,
+            columnSpan: 6,
+          ),
           // // Column 2
           // _buildItemForColor(cellRed).withGridPlacement(
           //   columnStart: 1,

@@ -1,0 +1,544 @@
+{
+    "cards": {
+        "Ace-spades": {
+            "rank": { "shortName": "A", "longName": "Ace" },
+            "suit": { "name": "spades" },
+            "id": "Ace-spades"
+        },
+        "Two-spades": {
+            "rank": { "shortName": "2", "longName": "Two" },
+            "suit": { "name": "spades" },
+            "id": "Two-spades"
+        },
+        "Three-spades": {
+            "rank": { "shortName": "3", "longName": "Three" },
+            "suit": { "name": "spades" },
+            "id": "Three-spades"
+        },
+        "Four-spades": {
+            "rank": { "shortName": "4", "longName": "Four" },
+            "suit": { "name": "spades" },
+            "id": "Four-spades"
+        },
+        "Five-spades": {
+            "rank": { "shortName": "5", "longName": "Five" },
+            "suit": { "name": "spades" },
+            "id": "Five-spades"
+        },
+        "Six-spades": {
+            "rank": { "shortName": "6", "longName": "Six" },
+            "suit": { "name": "spades" },
+            "id": "Six-spades"
+        },
+        "Seven-spades": {
+            "rank": { "shortName": "7", "longName": "Seven" },
+            "suit": { "name": "spades" },
+            "id": "Seven-spades"
+        },
+        "Eight-spades": {
+            "rank": { "shortName": "8", "longName": "Eight" },
+            "suit": { "name": "spades" },
+            "id": "Eight-spades"
+        },
+        "Nine-spades": {
+            "rank": { "shortName": "9", "longName": "Nine" },
+            "suit": { "name": "spades" },
+            "id": "Nine-spades"
+        },
+        "Ten-spades": {
+            "rank": { "shortName": "10", "longName": "Ten" },
+            "suit": { "name": "spades" },
+            "id": "Ten-spades"
+        },
+        "Jack-spades": {
+            "rank": { "shortName": "J", "longName": "Jack" },
+            "suit": { "name": "spades" },
+            "id": "Jack-spades"
+        },
+        "Queen-spades": {
+            "rank": { "shortName": "Q", "longName": "Queen" },
+            "suit": { "name": "spades" },
+            "id": "Queen-spades"
+        },
+        "King-spades": {
+            "rank": { "shortName": "K", "longName": "King" },
+            "suit": { "name": "spades" },
+            "id": "King-spades"
+        },
+        "Ace-hearts": {
+            "rank": { "shortName": "A", "longName": "Ace" },
+            "suit": { "name": "hearts" },
+            "id": "Ace-hearts"
+        },
+        "Two-hearts": {
+            "rank": { "shortName": "2", "longName": "Two" },
+            "suit": { "name": "hearts" },
+            "id": "Two-hearts"
+        },
+        "Three-hearts": {
+            "rank": { "shortName": "3", "longName": "Three" },
+            "suit": { "name": "hearts" },
+            "id": "Three-hearts"
+        },
+        "Four-hearts": {
+            "rank": { "shortName": "4", "longName": "Four" },
+            "suit": { "name": "hearts" },
+            "id": "Four-hearts"
+        },
+        "Five-hearts": {
+            "rank": { "shortName": "5", "longName": "Five" },
+            "suit": { "name": "hearts" },
+            "id": "Five-hearts"
+        },
+        "Six-hearts": {
+            "rank": { "shortName": "6", "longName": "Six" },
+            "suit": { "name": "hearts" },
+            "id": "Six-hearts"
+        },
+        "Seven-hearts": {
+            "rank": { "shortName": "7", "longName": "Seven" },
+            "suit": { "name": "hearts" },
+            "id": "Seven-hearts"
+        },
+        "Eight-hearts": {
+            "rank": { "shortName": "8", "longName": "Eight" },
+            "suit": { "name": "hearts" },
+            "id": "Eight-hearts"
+        },
+        "Nine-hearts": {
+            "rank": { "shortName": "9", "longName": "Nine" },
+            "suit": { "name": "hearts" },
+            "id": "Nine-hearts"
+        },
+        "Ten-hearts": {
+            "rank": { "shortName": "10", "longName": "Ten" },
+            "suit": { "name": "hearts" },
+            "id": "Ten-hearts"
+        },
+        "Jack-hearts": {
+            "rank": { "shortName": "J", "longName": "Jack" },
+            "suit": { "name": "hearts" },
+            "id": "Jack-hearts"
+        },
+        "Queen-hearts": {
+            "rank": { "shortName": "Q", "longName": "Queen" },
+            "suit": { "name": "hearts" },
+            "id": "Queen-hearts"
+        },
+        "King-hearts": {
+            "rank": { "shortName": "K", "longName": "King" },
+            "suit": { "name": "hearts" },
+            "id": "King-hearts"
+        },
+        "Ace-diamonds": {
+            "rank": { "shortName": "A", "longName": "Ace" },
+            "suit": { "name": "diamonds" },
+            "id": "Ace-diamonds"
+        },
+        "Two-diamonds": {
+            "rank": { "shortName": "2", "longName": "Two" },
+            "suit": { "name": "diamonds" },
+            "id": "Two-diamonds"
+        },
+        "Three-diamonds": {
+            "rank": { "shortName": "3", "longName": "Three" },
+            "suit": { "name": "diamonds" },
+            "id": "Three-diamonds"
+        },
+        "Four-diamonds": {
+            "rank": { "shortName": "4", "longName": "Four" },
+            "suit": { "name": "diamonds" },
+            "id": "Four-diamonds"
+        },
+        "Five-diamonds": {
+            "rank": { "shortName": "5", "longName": "Five" },
+            "suit": { "name": "diamonds" },
+            "id": "Five-diamonds"
+        },
+        "Six-diamonds": {
+            "rank": { "shortName": "6", "longName": "Six" },
+            "suit": { "name": "diamonds" },
+            "id": "Six-diamonds"
+        },
+        "Seven-diamonds": {
+            "rank": { "shortName": "7", "longName": "Seven" },
+            "suit": { "name": "diamonds" },
+            "id": "Seven-diamonds"
+        },
+        "Eight-diamonds": {
+            "rank": { "shortName": "8", "longName": "Eight" },
+            "suit": { "name": "diamonds" },
+            "id": "Eight-diamonds"
+        },
+        "Nine-diamonds": {
+            "rank": { "shortName": "9", "longName": "Nine" },
+            "suit": { "name": "diamonds" },
+            "id": "Nine-diamonds"
+        },
+        "Ten-diamonds": {
+            "rank": { "shortName": "10", "longName": "Ten" },
+            "suit": { "name": "diamonds" },
+            "id": "Ten-diamonds"
+        },
+        "Jack-diamonds": {
+            "rank": { "shortName": "J", "longName": "Jack" },
+            "suit": { "name": "diamonds" },
+            "id": "Jack-diamonds"
+        },
+        "Queen-diamonds": {
+            "rank": { "shortName": "Q", "longName": "Queen" },
+            "suit": { "name": "diamonds" },
+            "id": "Queen-diamonds"
+        },
+        "King-diamonds": {
+            "rank": { "shortName": "K", "longName": "King" },
+            "suit": { "name": "diamonds" },
+            "id": "King-diamonds"
+        },
+        "Ace-clubs": {
+            "rank": { "shortName": "A", "longName": "Ace" },
+            "suit": { "name": "clubs" },
+            "id": "Ace-clubs"
+        },
+        "Two-clubs": {
+            "rank": { "shortName": "2", "longName": "Two" },
+            "suit": { "name": "clubs" },
+            "id": "Two-clubs"
+        },
+        "Three-clubs": {
+            "rank": { "shortName": "3", "longName": "Three" },
+            "suit": { "name": "clubs" },
+            "id": "Three-clubs"
+        },
+        "Four-clubs": {
+            "rank": { "shortName": "4", "longName": "Four" },
+            "suit": { "name": "clubs" },
+            "id": "Four-clubs"
+        },
+        "Five-clubs": {
+            "rank": { "shortName": "5", "longName": "Five" },
+            "suit": { "name": "clubs" },
+            "id": "Five-clubs"
+        },
+        "Six-clubs": {
+            "rank": { "shortName": "6", "longName": "Six" },
+            "suit": { "name": "clubs" },
+            "id": "Six-clubs"
+        },
+        "Seven-clubs": {
+            "rank": { "shortName": "7", "longName": "Seven" },
+            "suit": { "name": "clubs" },
+            "id": "Seven-clubs"
+        },
+        "Eight-clubs": {
+            "rank": { "shortName": "8", "longName": "Eight" },
+            "suit": { "name": "clubs" },
+            "id": "Eight-clubs"
+        },
+        "Nine-clubs": {
+            "rank": { "shortName": "9", "longName": "Nine" },
+            "suit": { "name": "clubs" },
+            "id": "Nine-clubs"
+        },
+        "Ten-clubs": {
+            "rank": { "shortName": "10", "longName": "Ten" },
+            "suit": { "name": "clubs" },
+            "id": "Ten-clubs"
+        },
+        "Jack-clubs": {
+            "rank": { "shortName": "J", "longName": "Jack" },
+            "suit": { "name": "clubs" },
+            "id": "Jack-clubs"
+        },
+        "Queen-clubs": {
+            "rank": { "shortName": "Q", "longName": "Queen" },
+            "suit": { "name": "clubs" },
+            "id": "Queen-clubs"
+        },
+        "King-clubs": {
+            "rank": { "shortName": "K", "longName": "King" },
+            "suit": { "name": "clubs" },
+            "id": "King-clubs"
+        },
+        "Joker-none": {
+            "rank": { "shortName": "Joker", "longName": "Joker" },
+            "suit": { "name": "none" },
+            "id": "Joker-none"
+        },
+        "Joker-none-2": {
+            "rank": { "shortName": "Joker", "longName": "Joker" },
+            "suit": { "name": "none" },
+            "id": "Joker-none-2"
+        },
+        "Ace-spades-2": {
+            "rank": { "shortName": "A", "longName": "Ace" },
+            "suit": { "name": "spades" },
+            "id": "Ace-spades-2"
+        },
+        "Two-spades-2": {
+            "rank": { "shortName": "2", "longName": "Two" },
+            "suit": { "name": "spades" },
+            "id": "Two-spades-2"
+        },
+        "Three-spades-2": {
+            "rank": { "shortName": "3", "longName": "Three" },
+            "suit": { "name": "spades" },
+            "id": "Three-spades-2"
+        },
+        "Four-spades-2": {
+            "rank": { "shortName": "4", "longName": "Four" },
+            "suit": { "name": "spades" },
+            "id": "Four-spades-2"
+        },
+        "Five-spades-2": {
+            "rank": { "shortName": "5", "longName": "Five" },
+            "suit": { "name": "spades" },
+            "id": "Five-spades-2"
+        },
+        "Six-spades-2": {
+            "rank": { "shortName": "6", "longName": "Six" },
+            "suit": { "name": "spades" },
+            "id": "Six-spades-2"
+        },
+        "Seven-spades-2": {
+            "rank": { "shortName": "7", "longName": "Seven" },
+            "suit": { "name": "spades" },
+            "id": "Seven-spades-2"
+        },
+        "Eight-spades-2": {
+            "rank": { "shortName": "8", "longName": "Eight" },
+            "suit": { "name": "spades" },
+            "id": "Eight-spades-2"
+        },
+        "Nine-spades-2": {
+            "rank": { "shortName": "9", "longName": "Nine" },
+            "suit": { "name": "spades" },
+            "id": "Nine-spades-2"
+        },
+        "Ten-spades-2": {
+            "rank": { "shortName": "10", "longName": "Ten" },
+            "suit": { "name": "spades" },
+            "id": "Ten-spades-2"
+        },
+        "Jack-spades-2": {
+            "rank": { "shortName": "J", "longName": "Jack" },
+            "suit": { "name": "spades" },
+            "id": "Jack-spades-2"
+        },
+        "Queen-spades-2": {
+            "rank": { "shortName": "Q", "longName": "Queen" },
+            "suit": { "name": "spades" },
+            "id": "Queen-spades-2"
+        },
+        "King-spades-2": {
+            "rank": { "shortName": "K", "longName": "King" },
+            "suit": { "name": "spades" },
+            "id": "King-spades-2"
+        },
+        "Ace-hearts-2": {
+            "rank": { "shortName": "A", "longName": "Ace" },
+            "suit": { "name": "hearts" },
+            "id": "Ace-hearts-2"
+        },
+        "Two-hearts-2": {
+            "rank": { "shortName": "2", "longName": "Two" },
+            "suit": { "name": "hearts" },
+            "id": "Two-hearts-2"
+        },
+        "Three-hearts-2": {
+            "rank": { "shortName": "3", "longName": "Three" },
+            "suit": { "name": "hearts" },
+            "id": "Three-hearts-2"
+        },
+        "Four-hearts-2": {
+            "rank": { "shortName": "4", "longName": "Four" },
+            "suit": { "name": "hearts" },
+            "id": "Four-hearts-2"
+        },
+        "Five-hearts-2": {
+            "rank": { "shortName": "5", "longName": "Five" },
+            "suit": { "name": "hearts" },
+            "id": "Five-hearts-2"
+        },
+        "Six-hearts-2": {
+            "rank": { "shortName": "6", "longName": "Six" },
+            "suit": { "name": "hearts" },
+            "id": "Six-hearts-2"
+        },
+        "Seven-hearts-2": {
+            "rank": { "shortName": "7", "longName": "Seven" },
+            "suit": { "name": "hearts" },
+            "id": "Seven-hearts-2"
+        },
+        "Eight-hearts-2": {
+            "rank": { "shortName": "8", "longName": "Eight" },
+            "suit": { "name": "hearts" },
+            "id": "Eight-hearts-2"
+        },
+        "Nine-hearts-2": {
+            "rank": { "shortName": "9", "longName": "Nine" },
+            "suit": { "name": "hearts" },
+            "id": "Nine-hearts-2"
+        },
+        "Ten-hearts-2": {
+            "rank": { "shortName": "10", "longName": "Ten" },
+            "suit": { "name": "hearts" },
+            "id": "Ten-hearts-2"
+        },
+        "Jack-hearts-2": {
+            "rank": { "shortName": "J", "longName": "Jack" },
+            "suit": { "name": "hearts" },
+            "id": "Jack-hearts-2"
+        },
+        "Queen-hearts-2": {
+            "rank": { "shortName": "Q", "longName": "Queen" },
+            "suit": { "name": "hearts" },
+            "id": "Queen-hearts-2"
+        },
+        "King-hearts-2": {
+            "rank": { "shortName": "K", "longName": "King" },
+            "suit": { "name": "hearts" },
+            "id": "King-hearts-2"
+        },
+        "Ace-diamonds-2": {
+            "rank": { "shortName": "A", "longName": "Ace" },
+            "suit": { "name": "diamonds" },
+            "id": "Ace-diamonds-2"
+        },
+        "Two-diamonds-2": {
+            "rank": { "shortName": "2", "longName": "Two" },
+            "suit": { "name": "diamonds" },
+            "id": "Two-diamonds-2"
+        },
+        "Three-diamonds-2": {
+            "rank": { "shortName": "3", "longName": "Three" },
+            "suit": { "name": "diamonds" },
+            "id": "Three-diamonds-2"
+        },
+        "Four-diamonds-2": {
+            "rank": { "shortName": "4", "longName": "Four" },
+            "suit": { "name": "diamonds" },
+            "id": "Four-diamonds-2"
+        },
+        "Five-diamonds-2": {
+            "rank": { "shortName": "5", "longName": "Five" },
+            "suit": { "name": "diamonds" },
+            "id": "Five-diamonds-2"
+        },
+        "Six-diamonds-2": {
+            "rank": { "shortName": "6", "longName": "Six" },
+            "suit": { "name": "diamonds" },
+            "id": "Six-diamonds-2"
+        },
+        "Seven-diamonds-2": {
+            "rank": { "shortName": "7", "longName": "Seven" },
+            "suit": { "name": "diamonds" },
+            "id": "Seven-diamonds-2"
+        },
+        "Eight-diamonds-2": {
+            "rank": { "shortName": "8", "longName": "Eight" },
+            "suit": { "name": "diamonds" },
+            "id": "Eight-diamonds-2"
+        },
+        "Nine-diamonds-2": {
+            "rank": { "shortName": "9", "longName": "Nine" },
+            "suit": { "name": "diamonds" },
+            "id": "Nine-diamonds-2"
+        },
+        "Ten-diamonds-2": {
+            "rank": { "shortName": "10", "longName": "Ten" },
+            "suit": { "name": "diamonds" },
+            "id": "Ten-diamonds-2"
+        },
+        "Jack-diamonds-2": {
+            "rank": { "shortName": "J", "longName": "Jack" },
+            "suit": { "name": "diamonds" },
+            "id": "Jack-diamonds-2"
+        },
+        "Queen-diamonds-2": {
+            "rank": { "shortName": "Q", "longName": "Queen" },
+            "suit": { "name": "diamonds" },
+            "id": "Queen-diamonds-2"
+        },
+        "King-diamonds-2": {
+            "rank": { "shortName": "K", "longName": "King" },
+            "suit": { "name": "diamonds" },
+            "id": "King-diamonds-2"
+        },
+        "Ace-clubs-2": {
+            "rank": { "shortName": "A", "longName": "Ace" },
+            "suit": { "name": "clubs" },
+            "id": "Ace-clubs-2"
+        },
+        "Two-clubs-2": {
+            "rank": { "shortName": "2", "longName": "Two" },
+            "suit": { "name": "clubs" },
+            "id": "Two-clubs-2"
+        },
+        "Three-clubs-2": {
+            "rank": { "shortName": "3", "longName": "Three" },
+            "suit": { "name": "clubs" },
+            "id": "Three-clubs-2"
+        },
+        "Four-clubs-2": {
+            "rank": { "shortName": "4", "longName": "Four" },
+            "suit": { "name": "clubs" },
+            "id": "Four-clubs-2"
+        },
+        "Five-clubs-2": {
+            "rank": { "shortName": "5", "longName": "Five" },
+            "suit": { "name": "clubs" },
+            "id": "Five-clubs-2"
+        },
+        "Six-clubs-2": {
+            "rank": { "shortName": "6", "longName": "Six" },
+            "suit": { "name": "clubs" },
+            "id": "Six-clubs-2"
+        },
+        "Seven-clubs-2": {
+            "rank": { "shortName": "7", "longName": "Seven" },
+            "suit": { "name": "clubs" },
+            "id": "Seven-clubs-2"
+        },
+        "Eight-clubs-2": {
+            "rank": { "shortName": "8", "longName": "Eight" },
+            "suit": { "name": "clubs" },
+            "id": "Eight-clubs-2"
+        },
+        "Nine-clubs-2": {
+            "rank": { "shortName": "9", "longName": "Nine" },
+            "suit": { "name": "clubs" },
+            "id": "Nine-clubs-2"
+        },
+        "Ten-clubs-2": {
+            "rank": { "shortName": "10", "longName": "Ten" },
+            "suit": { "name": "clubs" },
+            "id": "Ten-clubs-2"
+        },
+        "Jack-clubs-2": {
+            "rank": { "shortName": "J", "longName": "Jack" },
+            "suit": { "name": "clubs" },
+            "id": "Jack-clubs-2"
+        },
+        "Queen-clubs-2": {
+            "rank": { "shortName": "Q", "longName": "Queen" },
+            "suit": { "name": "clubs" },
+            "id": "Queen-clubs-2"
+        },
+        "King-clubs-2": {
+            "rank": { "shortName": "K", "longName": "King" },
+            "suit": { "name": "clubs" },
+            "id": "King-clubs-2"
+        },
+        "Joker-none-3": {
+            "rank": { "shortName": "Joker", "longName": "Joker" },
+            "suit": { "name": "none" },
+            "id": "Joker-none-3"
+        },
+        "Joker-none-4": {
+            "rank": { "shortName": "Joker", "longName": "Joker" },
+            "suit": { "name": "none" },
+            "id": "Joker-none-4"
+        }
+    }
+}
