@@ -33,8 +33,8 @@ Card _$CardFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$CardToJson(Card instance) => <String, dynamic>{
-      'rank': instance.rank,
-      'suit': instance.suit,
+      'rank': instance.rank?.toJson(),
+      'suit': instance.suit?.toJson(),
       'id': instance.id,
     };
 

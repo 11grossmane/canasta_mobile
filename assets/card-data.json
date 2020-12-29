@@ -261,12 +261,12 @@
             "id": "King-clubs"
         },
         "Joker-none": {
-            "rank": { "shortName": "Joker", "longName": "Joker" },
+            "rank": { "shortName": "Jkr", "longName": "Joker" },
             "suit": { "name": "none" },
             "id": "Joker-none"
         },
         "Joker-none-2": {
-            "rank": { "shortName": "Joker", "longName": "Joker" },
+            "rank": { "shortName": "Jkr", "longName": "Joker" },
             "suit": { "name": "none" },
             "id": "Joker-none-2"
         },
@@ -531,12 +531,12 @@
             "id": "King-clubs-2"
         },
         "Joker-none-3": {
-            "rank": { "shortName": "Joker", "longName": "Joker" },
+            "rank": { "shortName": "Jkr", "longName": "Joker" },
             "suit": { "name": "none" },
             "id": "Joker-none-3"
         },
         "Joker-none-4": {
-            "rank": { "shortName": "Joker", "longName": "Joker" },
+            "rank": { "shortName": "Jkr", "longName": "Joker" },
             "suit": { "name": "none" },
             "id": "Joker-none-4"
         }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
-import 'package:my_app/hand.dart';
+import 'package:my_app/01-components/hand.dart';
 
 const cellRed = Color(0xffc73232);
 const cellMustard = Color(0xffd7aa22);

@@ -25,8 +25,21 @@ class GameStore {
     _cardPositions.cards['Ace-spades'] = card;
   }
 
+  void swapCardIDs({String groupName, int startIndex, int endIndex}) {
+    var group = _cardPositions.groups[groupName];
+    var temp = group.cardIDs[startIndex];
+    _cardPositions.groups[groupName].cardIDs[startIndex] =
+        group.cardIDs[endIndex];
+    _cardPositions.groups[groupName].cardIDs[endIndex] = temp;
+  }
+
   void setInitialCardPositions() async {
     _cardPositions = CardPositions.fromJson(await parseJson(path));
+    _cardPositions.groups['hand'].cardIDs = [
+      cardPositions.cards.keys.toList()[1],
+      cardPositions.cards.keys.toList()[20],
+      cardPositions.cards.keys.toList()[40]
+    ];
   }
 }
 

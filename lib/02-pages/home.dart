@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/post.dart';
-import 'package:my_app/postList.dart';
-import 'package:my_app/textInputWidget.dart';
+import 'package:my_app/01-components/postList.dart';
+import 'package:my_app/01-components/textInputWidget.dart';
+import 'package:my_app/types/post.dart';
 
 class Home extends StatefulWidget {
   final String author;

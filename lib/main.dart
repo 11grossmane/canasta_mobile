@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/home.dart';
-import 'package:my_app/login.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:my_app/02-pages/login.dart';
+import 'package:my_app/helpers.dart';
 import 'package:my_app/store/gameStore.dart';
-import './titleSection.dart' as t;
 
 void main() {
   runApp(MyApp());
@@ -26,6 +26,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'flutter layout demo',
       theme: ThemeData(
+        textTheme: GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

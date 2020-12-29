@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/grid.dart';
-import 'package:my_app/home.dart';
-import 'package:my_app/textInputWidget.dart';
+import 'package:my_app/01-components/grid.dart';
+import 'package:my_app/02-pages/home.dart';
+import 'package:my_app/01-components/textInputWidget.dart';
+import 'package:my_app/helpers.dart';
 
 class Login extends StatefulWidget {
   @override
