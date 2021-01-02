@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:js_shims/js_shims.dart';
 import 'package:my_app/helpers.dart';
 import 'package:my_app/types/card.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
@@ -28,9 +29,13 @@ class GameStore {
   void swapCardIDs({String groupName, int startIndex, int endIndex}) {
     var group = _cardPositions.groups[groupName];
     var temp = group.cardIDs[startIndex];
-    _cardPositions.groups[groupName].cardIDs[startIndex] =
-        group.cardIDs[endIndex];
-    _cardPositions.groups[groupName].cardIDs[endIndex] = temp;
+    //removing
+    splice(group.cardIDs, startIndex, 1);
+    //adding
+    splice(group.cardIDs, endIndex, 0, temp);
+    // _cardPositions.groups[groupName].cardIDs[startIndex] =
+    //     group.cardIDs[endIndex];
+    // _cardPositions.groups[groupName].cardIDs[endIndex] = temp;
   }
 
   void setInitialCardPositions() async {
@@ -38,7 +43,9 @@ class GameStore {
     _cardPositions.groups['hand'].cardIDs = [
       cardPositions.cards.keys.toList()[1],
       cardPositions.cards.keys.toList()[20],
-      cardPositions.cards.keys.toList()[40]
+      cardPositions.cards.keys.toList()[40],
+      cardPositions.cards.keys.toList()[42],
+      cardPositions.cards.keys.toList()[56]
     ];
   }
 }

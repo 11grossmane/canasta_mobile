@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import "package:charcode/charcode.dart";
 import 'package:flutter/widgets.dart';
+import 'package:my_app/01-components/Hand.dart';
 import 'package:my_app/colors.dart';
+import 'package:my_app/helpers.dart';
 import 'package:my_app/types/card.dart' as cardTypes;
 
 class ColorCharCodes {
@@ -12,8 +14,8 @@ class ColorCharCodes {
 
 class CardElem extends StatefulWidget {
   final cardTypes.Card card;
-  Key key;
-  CardElem({this.card, this.key});
+  GlobalKey handKey;
+  CardElem({this.card, this.handKey});
   @override
   _CardElemState createState() => _CardElemState();
 }
@@ -26,18 +28,18 @@ class _CardElemState extends State<CardElem> {
     'diamonds': ColorCharCodes($diams, MyColors.lightRed),
     'none': ColorCharCodes($weierp, MyColors.lightRed)
   };
-  final double fontSize = 20;
 
   @override
   Widget build(BuildContext context) {
+    final double fontSize = MediaQuery.of(context).size.height * .025;
     String suitName = widget.card.suit.name;
     return Material(
-      key: widget.key,
-      color: Colors.transparent,
+      color: Colors.red,
       child: Padding(
-          padding: EdgeInsets.fromLTRB(5, 20, 5, 20),
+          padding: EdgeInsets.fromLTRB(5, 1, 5, 1),
           child: SizedBox(
             width: 50,
+            height: getRenderBox(widget.handKey).size.height,
             child: DecoratedBox(
                 decoration: BoxDecoration(
                     color: MyColors.lightBackground,

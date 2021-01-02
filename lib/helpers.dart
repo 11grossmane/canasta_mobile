@@ -22,6 +22,7 @@ List<T> shuffle<T>(List<T> list) {
 }
 
 RenderBox getRenderBox(GlobalKey key) {
+  if (key == null) return null;
   RenderBox renderBox = key.currentContext.findRenderObject();
   return renderBox;
 }
