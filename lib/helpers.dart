@@ -22,9 +22,14 @@ List<T> shuffle<T>(List<T> list) {
 }
 
 RenderBox getRenderBox(GlobalKey key) {
-  if (key == null) return null;
-  RenderBox renderBox = key.currentContext.findRenderObject();
-  return renderBox;
+  bool hasError = true;
+  while (hasError)
+    try {
+      RenderBox renderBox = key.currentContext.findRenderObject();
+      return renderBox;
+    } catch (e) {
+      print(e.toString());
+    }
 }
 
 class Bounds {
@@ -50,7 +55,6 @@ int getEndIndex(
     @required double containerStart,
     double containerEnd}) {
   var sectionSize = width / lengthOfList;
-  print('inside getEndIndex offsetX $offsetX sectionSize $sectionSize');
   var floor = ((offsetX - containerStart) / sectionSize).floor();
   return floor > lengthOfList - 1
       ? lengthOfList - 1

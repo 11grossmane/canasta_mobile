@@ -50,21 +50,22 @@ class _HandState extends State<Hand> {
         lengthOfList: handsIDs.length,
         containerStart: position.dx);
 
-    GameModel.setState((s) {
-      s.swapCardIDs(
-          groupName: 'hand', startIndex: startIndex, endIndex: endIndex);
-    });
+    if (startIndex != endIndex) {
+      GameModel.setState((s) {
+        s.swapCardIDs(
+            groupName: 'hand', startIndex: startIndex, endIndex: endIndex);
+      });
+    }
 
     return true;
     // GameModel.setState((s) => {s.swapCardIDs('hand', oldIndex, newIndex)});
   }
 
   void reorderLocal(DragTargetDetails<dynamic> data) {
-    if (data.offset.distance < 15) return;
+    if (data.offset.distance < 20) return;
     var copyIDs =
         GameModel.state.cardPositions.groups['hand'].cardIDs.sublist(0);
     var startIndex = data.data;
-    print('data from move is ${data.data}');
     var box = getRenderBox(handKey);
     var width = box.size.width;
     var position = box.localToGlobal(Offset.zero);
@@ -88,12 +89,12 @@ class _HandState extends State<Hand> {
 
   @override
   Widget build(BuildContext context) {
+    var handHeight = MediaQuery.of(context).size.height / 7;
     if (GameModel.state.cardPositions == null) return Text('loading');
-    var screenWidth = MediaQuery.of(context).size.width * 10;
-
     return GameModel.rebuilder(() {
       var hand = GameModel.state.cardPositions.groups['hand'];
       var cards = GameModel.state.cardPositions.cards;
+      if (hand.cardIDs.length == 0) return null;
       return DragTarget<int>(
           onAcceptWithDetails: this.reorder,
           // onWillAccept: reorderLocal,
@@ -120,16 +121,19 @@ class _HandState extends State<Hand> {
                                 .map((entry) => Draggable<int>(
                                       key: ValueKey(entry.value),
                                       data: entry.key,
-                                      feedback: CardElem(
-                                          handKey: handKey,
-                                          card: cards[entry.value]),
+                                      feedback: Material(
+                                        type: MaterialType.transparency,
+                                        child: CardElem(
+                                            handHeight: handHeight,
+                                            card: cards[entry.value]),
+                                      ),
                                       childWhenDragging: Container(
                                         width: 50,
                                         padding:
                                             EdgeInsets.fromLTRB(5, 1, 5, 1),
                                       ),
                                       child: CardElem(
-                                          handKey: handKey,
+                                          handHeight: handHeight,
                                           card: cards[entry.value]),
                                     ))
                                 .toList())),

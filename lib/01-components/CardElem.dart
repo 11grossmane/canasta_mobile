@@ -14,8 +14,8 @@ class ColorCharCodes {
 
 class CardElem extends StatefulWidget {
   final cardTypes.Card card;
-  GlobalKey handKey;
-  CardElem({this.card, this.handKey});
+  double handHeight;
+  CardElem({this.card, this.handHeight});
   @override
   _CardElemState createState() => _CardElemState();
 }
@@ -31,58 +31,53 @@ class _CardElemState extends State<CardElem> {
 
   @override
   Widget build(BuildContext context) {
-    final double fontSize = MediaQuery.of(context).size.height * .025;
+    var height = MediaQuery.of(context).size.height;
+    final double fontSize = height * .025;
     String suitName = widget.card.suit.name;
-    return Material(
-      color: Colors.red,
+    return Container(
+      margin: EdgeInsets.fromLTRB(5, 1, 5, 1),
+      width: 50,
+      height: widget.handHeight,
+      decoration: BoxDecoration(
+          color: MyColors.lightBackground,
+          border: Border.all(color: MyColors.lightRed),
+          borderRadius: BorderRadius.circular(10)),
       child: Padding(
-          padding: EdgeInsets.fromLTRB(5, 1, 5, 1),
-          child: SizedBox(
-            width: 50,
-            height: getRenderBox(widget.handKey).size.height,
-            child: DecoratedBox(
-                decoration: BoxDecoration(
-                    color: MyColors.lightBackground,
-                    border: Border.all(color: MyColors.lightRed),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Padding(
-                  padding: EdgeInsets.all(3),
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              widget.card.rank.shortName,
-                              style: TextStyle(
-                                  color: MyColors.dark, fontSize: fontSize),
-                            )
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              String.fromCharCode(
-                                  colorCharCodeMap[suitName].code),
-                              style: TextStyle(
-                                  color: colorCharCodeMap[suitName].color,
-                                  fontSize: fontSize),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(widget.card.rank.shortName,
-                                style: TextStyle(
-                                    color: MyColors.dark, fontSize: fontSize)),
-                          ],
-                        )
-                      ]),
-                )),
-          )),
+        padding: EdgeInsets.all(3),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.card.rank.shortName,
+                    style: TextStyle(color: MyColors.dark, fontSize: fontSize),
+                  )
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    String.fromCharCode(colorCharCodeMap[suitName].code),
+                    style: TextStyle(
+                        color: colorCharCodeMap[suitName].color,
+                        fontSize: fontSize),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(widget.card.rank.shortName,
+                      style:
+                          TextStyle(color: MyColors.dark, fontSize: fontSize)),
+                ],
+              )
+            ]),
+      ),
     );
+    ;
   }
 }

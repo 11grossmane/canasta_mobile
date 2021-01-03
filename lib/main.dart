@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_app/01-components/Grid.dart';
 import 'package:my_app/02-pages/login.dart';
 import 'package:my_app/helpers.dart';
 import 'package:my_app/store/gameStore.dart';
@@ -30,7 +31,7 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Login(),
+      home: Grid(),
     );
   }
 }

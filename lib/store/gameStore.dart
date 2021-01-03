@@ -15,19 +15,19 @@ class GameStore {
   GameStore([this._cardPositions]);
 
   CardPositions get cardPositions {
-    return _cardPositions;
+    return this._cardPositions;
   }
 
   set cardPositions(w) {
-    _cardPositions = w;
+    this._cardPositions = w;
   }
 
   void setAceSpades(Card card) {
-    _cardPositions.cards['Ace-spades'] = card;
+    this._cardPositions.cards['Ace-spades'] = card;
   }
 
   void swapCardIDs({String groupName, int startIndex, int endIndex}) {
-    var group = _cardPositions.groups[groupName];
+    var group = this._cardPositions.groups[groupName];
     var temp = group.cardIDs[startIndex];
     //removing
     splice(group.cardIDs, startIndex, 1);
