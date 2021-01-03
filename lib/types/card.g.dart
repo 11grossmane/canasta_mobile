@@ -7,17 +7,35 @@ part of 'card.dart';
 // **************************************************************************
 
 CardPositions _$CardPositionsFromJson(Map<String, dynamic> json) {
-  return CardPositions(
-    cards: (json['cards'] as Map<String, dynamic>)?.map(
+  return CardPositions()
+    ..cards = (json['cards'] as Map<String, dynamic>)?.map(
       (k, e) => MapEntry(
           k, e == null ? null : Card.fromJson(e as Map<String, dynamic>)),
-    ),
-  );
+    )
+    ..groups = (json['groups'] as Map<String, dynamic>)?.map(
+      (k, e) => MapEntry(
+          k, e == null ? null : Group.fromJson(e as Map<String, dynamic>)),
+    );
 }
 
 Map<String, dynamic> _$CardPositionsToJson(CardPositions instance) =>
     <String, dynamic>{
       'cards': instance.cards,
+      'groups': instance.groups,
+    };
+
+Group _$GroupFromJson(Map<String, dynamic> json) {
+  return Group(
+    id: json['id'] as String,
+    title: json['title'] as String,
+    cardIDs: (json['cardIDs'] as List)?.map((e) => e as String)?.toList(),
+  );
+}
+
+Map<String, dynamic> _$GroupToJson(Group instance) => <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'cardIDs': instance.cardIDs,
     };
 
 Card _$CardFromJson(Map<String, dynamic> json) {

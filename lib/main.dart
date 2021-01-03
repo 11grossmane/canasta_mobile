@@ -15,11 +15,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  var loading = true;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    GameModel.state.setInitialCardPositions();
+    GameModel.setState((s) async {
+      await s.setInitialCardPositions();
+      setState(() {
+        this.loading = false;
+      });
+    });
   }
 
   @override
@@ -31,7 +37,7 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Grid(),
+      home: (this.loading) ? Container() : Grid(),
     );
   }
 }

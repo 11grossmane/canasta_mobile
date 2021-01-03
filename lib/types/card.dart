@@ -4,12 +4,10 @@ part 'card.g.dart';
 
 @JsonSerializable()
 class CardPositions {
-  Map<String, Card> cards = {};
-  Map<String, Group> groups = {
-    'hand': Group(id: 'hand', title: 'Hand', cardIDs: [])
-  };
+  Map<String, Card> cards;
+  Map<String, Group> groups;
 
-  CardPositions({this.cards});
+  CardPositions();
 
   factory CardPositions.fromJson(Map<String, dynamic> json) {
     var cardPositions = _$CardPositionsFromJson(json);
@@ -19,11 +17,16 @@ class CardPositions {
   Map<String, dynamic> toJson() => _$CardPositionsToJson(this);
 }
 
+@JsonSerializable(explicitToJson: true)
 class Group {
   String id;
   String title;
   List<String> cardIDs;
-  Group({id, title, cardIDs});
+  Group({this.id, this.title, this.cardIDs});
+
+  factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
+
+  Map<String, dynamic> toJson() => _$GroupToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -58,3 +61,11 @@ class Suit {
 
   Map<String, dynamic> toJson() => _$SuitToJson(this);
 }
+
+class CardDragDetails {
+  String name;
+  int index;
+  CardDragDetails(this.name, this.index);
+}
+
+enum CardTypes { cardSpot, hand }

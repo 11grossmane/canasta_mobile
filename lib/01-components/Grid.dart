@@ -22,72 +22,73 @@ class _GridState extends State<Grid> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-        type: MaterialType.transparency,
-        child: Container(
-          color: MyColors.darkBackground,
-          child: LayoutGrid(
-            columnGap: 12,
-            rowGap: 12,
-            templateColumnSizes: [
-              FlexibleTrackSize(1),
-              FlexibleTrackSize(1),
-              FlexibleTrackSize(1),
-              FlexibleTrackSize(1),
-              FlexibleTrackSize(1),
-              FlexibleTrackSize(1),
-            ],
-            templateRowSizes: [
-              FlexibleTrackSize(1),
-              FlexibleTrackSize(1),
-              FlexibleTrackSize(1),
-              FlexibleTrackSize(1),
-              FlexibleTrackSize(1),
-              FlexibleTrackSize(1),
-            ],
-            children: [
-              // Column 1
-              Board().withGridPlacement(
-                  columnStart: 1, rowStart: 1, rowSpan: 4, columnSpan: 4),
-              Hand().withGridPlacement(
-                columnStart: 0,
-                rowStart: 5,
-                columnSpan: 6,
+    return SafeArea(
+        child: Scaffold(
+            appBar: AppBar(title: Text('Canasta')),
+            body: Container(
+              color: MyColors.darkBackground,
+              child: LayoutGrid(
+                columnGap: 12,
+                rowGap: 12,
+                templateColumnSizes: [
+                  FlexibleTrackSize(1),
+                  FlexibleTrackSize(1),
+                  FlexibleTrackSize(1),
+                  FlexibleTrackSize(1),
+                  FlexibleTrackSize(1),
+                  FlexibleTrackSize(1),
+                ],
+                templateRowSizes: [
+                  FlexibleTrackSize(1),
+                  FlexibleTrackSize(1),
+                  FlexibleTrackSize(1),
+                  FlexibleTrackSize(1),
+                  FlexibleTrackSize(1),
+                  FlexibleTrackSize(1),
+                ],
+                children: [
+                  // Column 1
+                  Board().withGridPlacement(
+                      columnStart: 1, rowStart: 1, rowSpan: 4, columnSpan: 4),
+                  Hand().withGridPlacement(
+                    columnStart: 0,
+                    rowStart: 5,
+                    columnSpan: 6,
+                  ),
+                  // // Column 2
+                  // _buildItemForColor(cellRed).withGridPlacement(
+                  //   columnStart: 1,
+                  //   rowStart: 0,
+                  //   rowSpan: 4,
+                  // ),
+                  // // Column 3
+                  // _buildItemForColor(cellBlue).withGridPlacement(
+                  //   columnStart: 2,
+                  //   columnSpan: 3,
+                  //   rowStart: 0,
+                  // ),
+                  // _buildItemForColor(cellMustard).withGridPlacement(
+                  //   columnStart: 2,
+                  //   columnSpan: 3,
+                  //   rowStart: 1,
+                  //   rowSpan: 2,
+                  // ),
+                  // _buildItemForColor(cellGrey).withGridPlacement(
+                  //   columnStart: 2,
+                  //   rowStart: 3,
+                  // ),
+                  // // Column 4
+                  // _buildItemForColor(cellBlue).withGridPlacement(
+                  //   columnStart: 3,
+                  //   rowStart: 3,
+                  // ),
+                  // // Column 5
+                  // _buildItemForColor(cellMustard).withGridPlacement(
+                  //   columnStart: 4,
+                  //rowStart: 3,
+                  //),
+                ],
               ),
-              // // Column 2
-              // _buildItemForColor(cellRed).withGridPlacement(
-              //   columnStart: 1,
-              //   rowStart: 0,
-              //   rowSpan: 4,
-              // ),
-              // // Column 3
-              // _buildItemForColor(cellBlue).withGridPlacement(
-              //   columnStart: 2,
-              //   columnSpan: 3,
-              //   rowStart: 0,
-              // ),
-              // _buildItemForColor(cellMustard).withGridPlacement(
-              //   columnStart: 2,
-              //   columnSpan: 3,
-              //   rowStart: 1,
-              //   rowSpan: 2,
-              // ),
-              // _buildItemForColor(cellGrey).withGridPlacement(
-              //   columnStart: 2,
-              //   rowStart: 3,
-              // ),
-              // // Column 4
-              // _buildItemForColor(cellBlue).withGridPlacement(
-              //   columnStart: 3,
-              //   rowStart: 3,
-              // ),
-              // // Column 5
-              // _buildItemForColor(cellMustard).withGridPlacement(
-              //   columnStart: 4,
-              //rowStart: 3,
-              //),
-            ],
-          ),
-        ));
+            )));
   }
 }

@@ -261,12 +261,12 @@
             "id": "King-clubs"
         },
         "Joker-none": {
-            "rank": { "shortName": "Jkr", "longName": "Joker" },
+            "rank": { "shortName": "Jo", "longName": "Joker" },
             "suit": { "name": "none" },
             "id": "Joker-none"
         },
         "Joker-none-2": {
-            "rank": { "shortName": "Jkr", "longName": "Joker" },
+            "rank": { "shortName": "Jo", "longName": "Joker" },
             "suit": { "name": "none" },
             "id": "Joker-none-2"
         },
@@ -531,14 +531,60 @@
             "id": "King-clubs-2"
         },
         "Joker-none-3": {
-            "rank": { "shortName": "Jkr", "longName": "Joker" },
+            "rank": { "shortName": "Jo", "longName": "Joker" },
             "suit": { "name": "none" },
             "id": "Joker-none-3"
         },
         "Joker-none-4": {
-            "rank": { "shortName": "Jkr", "longName": "Joker" },
+            "rank": { "shortName": "Jo", "longName": "Joker" },
             "suit": { "name": "none" },
             "id": "Joker-none-4"
         }
+    },
+    "groups": {
+        "deck": { "id": "deck", "title": "Deck", "cardIDs": [] },
+        "discard": { "id": "discard", "title": "Discard", "cardIDs": [] },
+        "redWild": { "id": "redWild", "title": "Red Wild", "cardIDs": [] },
+        "redThree": { "id": "redThree", "title": "Red Three", "cardIDs": [] },
+        "redFour": { "id": "redFour", "title": "Red Four", "cardIDs": [] },
+        "redFive": { "id": "redFive", "title": "Red Five", "cardIDs": [] },
+        "redSix": { "id": "redSix", "title": "Red Six", "cardIDs": [] },
+        "redSeven": { "id": "redSeven", "title": "Red Seven", "cardIDs": [] },
+        "redEight": { "id": "redEight", "title": "Red Eight", "cardIDs": [] },
+        "redNine": { "id": "redNine", "title": "Red Nine", "cardIDs": [] },
+        "redTen": { "id": "redTen", "title": "Red Ten", "cardIDs": [] },
+        "redJack": { "id": "redJack", "title": "Red Jack", "cardIDs": [] },
+        "redQueen": { "id": "redQueen", "title": "Red Queen", "cardIDs": [] },
+        "redKing": { "id": "redKing", "title": "Red King", "cardIDs": [] },
+        "redAce": { "id": "redAce", "title": "Red Ace", "cardIDs": [] },
+        "blueWild": { "id": "blueWild", "title": "Blue Wild", "cardIDs": [] },
+        "blueThree": {
+            "id": "blueThree",
+            "title": "Blue Three",
+            "cardIDs": []
+        },
+        "blueFour": { "id": "blueFour", "title": "Blue Four", "cardIDs": [] },
+        "blueFive": { "id": "blueFive", "title": "Blue Five", "cardIDs": [] },
+        "blueSix": { "id": "blueSix", "title": "Blue Six", "cardIDs": [] },
+        "blueSeven": {
+            "id": "blueSeven",
+            "title": "Blue Seven",
+            "cardIDs": []
+        },
+        "blueEight": {
+            "id": "blueEight",
+            "title": "Blue Eight",
+            "cardIDs": []
+        },
+        "blueNine": { "id": "blueNine", "title": "Blue Nine", "cardIDs": [] },
+        "blueTen": { "id": "blueTen", "title": "Blue Ten", "cardIDs": [] },
+        "blueJack": { "id": "blueJack", "title": "Blue Jack", "cardIDs": [] },
+        "blueQueen": {
+            "id": "blueQueen",
+            "title": "Blue Queen",
+            "cardIDs": []
+        },
+        "blueKing": { "id": "blueKing", "title": "Blue King", "cardIDs": [] },
+        "blueAce": { "id": "blueAce", "title": "Blue Ace", "cardIDs": [] }
     }
 }

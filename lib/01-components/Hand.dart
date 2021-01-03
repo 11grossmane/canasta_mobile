@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:js_shims/js_shims.dart';
+import 'package:states_rebuilder/states_rebuilder.dart';
 import 'package:throttling/throttling.dart';
 
 import 'package:my_app/01-components/CardElem.dart';
@@ -24,7 +25,7 @@ class _HandState extends State<Hand> {
     super.initState();
     setState(() {
       this.localCardIDs = GameModel.state.cardPositions.groups['hand'].cardIDs;
-
+      print('setting state');
       this.throttler = new Throttling(duration: Duration(milliseconds: 40));
     });
   }
@@ -38,9 +39,9 @@ class _HandState extends State<Hand> {
   //       });
   // }
 
-  bool reorder(DragTargetDetails<int> data) {
+  bool reorder(DragTargetDetails<cardTypes.CardDragDetails> data) {
     var handsIDs = GameModel.state.cardPositions.groups['hand'].cardIDs;
-    var startIndex = data.data;
+    var startIndex = data.data.index;
     var box = getRenderBox(handKey);
     var width = box.size.width;
     var position = box.localToGlobal(Offset.zero);
@@ -62,10 +63,11 @@ class _HandState extends State<Hand> {
   }
 
   void reorderLocal(DragTargetDetails<dynamic> data) {
+    if (this.localCardIDs.length <= 1) return;
     if (data.offset.distance < 20) return;
     var copyIDs =
         GameModel.state.cardPositions.groups['hand'].cardIDs.sublist(0);
-    var startIndex = data.data;
+    var startIndex = data.data.index;
     var box = getRenderBox(handKey);
     var width = box.size.width;
     var position = box.localToGlobal(Offset.zero);
@@ -78,10 +80,10 @@ class _HandState extends State<Hand> {
     setState(() {
       var temp = copyIDs[startIndex];
       //removing
-      var splicedCopy = splice(copyIDs, startIndex, 1);
-      //adding
-      splicedCopy = splice(copyIDs, endIndex, 0, temp);
-      this.localCardIDs = splicedCopy;
+      copyIDs.removeAt(startIndex);
+      copyIDs.insert(endIndex, temp);
+
+      this.localCardIDs = copyIDs;
     });
 
     ;
@@ -91,17 +93,25 @@ class _HandState extends State<Hand> {
   Widget build(BuildContext context) {
     var handHeight = MediaQuery.of(context).size.height / 7;
     if (GameModel.state.cardPositions == null) return Text('loading');
-    return GameModel.rebuilder(() {
-      var hand = GameModel.state.cardPositions.groups['hand'];
+    return GameModel.listen(onSetState: When.always(() {
+      setState(() {
+        this.localCardIDs =
+            GameModel.state.cardPositions.groups['hand'].cardIDs;
+        print('setting state');
+        this.throttler = new Throttling(duration: Duration(milliseconds: 40));
+      });
+    }), rebuild: When.data(() {
       var cards = GameModel.state.cardPositions.cards;
-      if (hand.cardIDs.length == 0) return null;
-      return DragTarget<int>(
+      var hand = GameModel.state.cardPositions.groups['hand'].cardIDs;
+      print('hand is ${hand}');
+      if (this.localCardIDs.isEmpty) return Text('empty');
+      return DragTarget<cardTypes.CardDragDetails>(
           onAcceptWithDetails: this.reorder,
           // onWillAccept: reorderLocal,
           onMove: this.reorderLocal,
-          builder: (BuildContext context, List<int> incoming, List rejected) =>
+          builder: (BuildContext context,
+                  List<cardTypes.CardDragDetails> incoming, List rejected) =>
               Container(
-                  padding: EdgeInsets.all(0),
                   decoration: BoxDecoration(
                       border: Border.all(color: Colors.green),
                       color: MyColors.darkBackground),
@@ -109,6 +119,7 @@ class _HandState extends State<Hand> {
                     alignment: Alignment.center,
                     child: Container(
                         color: MyColors.darkBlue,
+                        height: handHeight * .7,
                         child: ListView(
                             key: handKey,
                             //onReorder: onReorder,
@@ -118,9 +129,11 @@ class _HandState extends State<Hand> {
                                 .localCardIDs
                                 .asMap()
                                 .entries
-                                .map((entry) => Draggable<int>(
+                                .map((entry) =>
+                                    Draggable<cardTypes.CardDragDetails>(
                                       key: ValueKey(entry.value),
-                                      data: entry.key,
+                                      data: cardTypes.CardDragDetails(
+                                          entry.value, entry.key),
                                       feedback: Material(
                                         type: MaterialType.transparency,
                                         child: CardElem(
@@ -138,6 +151,6 @@ class _HandState extends State<Hand> {
                                     ))
                                 .toList())),
                   )));
-    });
+    }));
   }
 }

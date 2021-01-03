@@ -11,11 +11,16 @@ import 'dart:io';
 var path = 'assets/card-data.json';
 
 class GameStore {
-  CardPositions _cardPositions = CardPositions(cards: {});
+  CardPositions _cardPositions;
+  bool _cardPositionSet = false;
   GameStore([this._cardPositions]);
 
   CardPositions get cardPositions {
     return this._cardPositions;
+  }
+
+  bool get cardPositionsSet {
+    return this._cardPositionSet;
   }
 
   set cardPositions(w) {
@@ -30,23 +35,36 @@ class GameStore {
     var group = this._cardPositions.groups[groupName];
     var temp = group.cardIDs[startIndex];
     //removing
-    splice(group.cardIDs, startIndex, 1);
+    group.cardIDs.removeAt(startIndex);
     //adding
-    splice(group.cardIDs, endIndex, 0, temp);
+    group.cardIDs.insert(endIndex, temp);
+    //splice(group.cardIDs, endIndex, 0, temp);
     // _cardPositions.groups[groupName].cardIDs[startIndex] =
     //     group.cardIDs[endIndex];
     // _cardPositions.groups[groupName].cardIDs[endIndex] = temp;
   }
 
-  void setInitialCardPositions() async {
+  void moveCardFromHandToTable(
+      {String endGroupName, int startIndex, String cardID}) {
+    print('data from move to table $endGroupName $startIndex $cardID');
+    var hand = this._cardPositions.groups['hand'];
+    print('hand is ${hand.cardIDs}');
+    var endGroup = this._cardPositions.groups[endGroupName];
+    hand.cardIDs.removeAt(startIndex);
+    endGroup.cardIDs.add(cardID);
+  }
+
+  Future<void> setInitialCardPositions() async {
     _cardPositions = CardPositions.fromJson(await parseJson(path));
-    _cardPositions.groups['hand'].cardIDs = [
-      cardPositions.cards.keys.toList()[1],
-      cardPositions.cards.keys.toList()[20],
-      cardPositions.cards.keys.toList()[40],
-      cardPositions.cards.keys.toList()[42],
-      cardPositions.cards.keys.toList()[56]
-    ];
+    _cardPositions.groups['hand'] = Group(id: 'hand', title: 'Hand', cardIDs: [
+      'King-clubs',
+      'Seven-hearts',
+      'Five-diamonds',
+      'Ace-spades',
+      'Joker-none'
+    ]);
+
+    _cardPositionSet = true;
   }
 }
 
